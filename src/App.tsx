@@ -1,24 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Penguin from "./components/Penguin";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Penguin penguin={{id: 1, name: "Pablo", species: "Emperor Penguin", hunger: 10, love: 10}} />
+      <Penguin penguin={{id: 1, name: "Joe", species: "Emperor Penguin", hunger: 10, love: 10}} />
     </div>
   );
 }
