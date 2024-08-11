@@ -20,7 +20,7 @@ export default function Penguins() {
   if (penguins == null) return <div></div>;
 
   return (
-    <div>
+    <div className="flex">
       {penguins.map((penguin) => (
         <Penguin key={penguin.id} penguin={penguin} />
       ))}
