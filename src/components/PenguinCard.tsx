@@ -4,7 +4,7 @@ interface PenguinProps {
   penguin: IPenguin;
 }
 
-export default function Penguin({ penguin }: PenguinProps) {
+export default function PenguinCard({ penguin }: PenguinProps) {
   return (
     <div className="flex flex-col border-solid border-2 rounded-lg w-60 h-80 m-3 bg-gray-50 shadow-lg">
       <div className="m-3 flex flex-col justify-around h-full">

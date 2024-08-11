@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IPenguin } from "../types/types";
-import Penguin from "./Penguin";
+import PenguinCard from "./PenguinCard";
+import PenguinThumbnail from "./PenguinThumbnail";
 
 export default function Penguins() {
   const [penguins, setPenguins] = useState<IPenguin[] | null>(null);
@@ -20,10 +21,15 @@ export default function Penguins() {
   if (penguins == null) return <div></div>;
 
   return (
-    <div className="flex">
-      {penguins.map((penguin) => (
-        <Penguin key={penguin.id} penguin={penguin} />
-      ))}
+    <div>
+      <div className="flex justify-center">
+        <PenguinCard penguin={penguins[0]} />
+      </div>
+      <div className="flex justify-center">
+        {penguins.map((penguin) => (
+          <PenguinThumbnail key={penguin.id} penguin={penguin} />
+        ))}
+      </div>
     </div>
   );
 }

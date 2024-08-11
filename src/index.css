@@ -28,7 +28,7 @@ code {
   h2 {
     @apply text-3xl font-semibold leading-snug md:text-4xl;
   }
-  /* * {
-    @apply font-nunito;
-  } */
+  body {
+    @apply bg-gray-200;
+  }
 }
