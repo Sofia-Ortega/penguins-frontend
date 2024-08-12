@@ -24,7 +24,10 @@ export default function Penguins() {
   const handleFeedClick = async () => {
     if (penguins == null) return;
 
-    const { id } = penguins[mainPenguinIndex];
+    const { id, hunger } = penguins[mainPenguinIndex];
+
+    if (hunger <= 0) return; // can't feed if hunger is 0
+
     const updatedHunger = await feedPenguin(id);
 
     setPenguins(
@@ -44,7 +47,10 @@ export default function Penguins() {
       </div>
 
       <div className="flex justify-center">
-        <FeedButton onClick={handleFeedClick} />
+        <FeedButton
+          onClick={handleFeedClick}
+          disabled={penguins[mainPenguinIndex].hunger <= 0}
+        />
       </div>
 
       <div className="flex justify-center my-8">

@@ -27,6 +27,11 @@ export const feedPenguin = async (penguinId: number): Promise<number> => {
 
     return updatedHunger;
   } catch (err) {
+    if (axios.isAxiosError(err) && err.response?.status === 400) {
+      return 0; // bad request indicates that tried to feed a penguin with 0 hunger
+    }
+
+    // else
     console.error("[ERROR] penguinService.feedPenguin() ", err);
     throw err;
   }

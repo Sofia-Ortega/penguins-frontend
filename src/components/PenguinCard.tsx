@@ -6,8 +6,6 @@ interface PenguinProps {
 }
 
 export default function PenguinCard({ penguin }: PenguinProps) {
-  const PENGUIN_IMAGES_NAMES = ["rockhopper", "adelie", "emperor"];
-
   const image = require(`../assets/images/${penguin.species.toLowerCase()}_400x400.png`);
 
   return (
