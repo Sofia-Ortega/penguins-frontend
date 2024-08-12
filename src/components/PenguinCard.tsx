@@ -8,9 +8,7 @@ interface PenguinProps {
 export default function PenguinCard({ penguin }: PenguinProps) {
   const PENGUIN_IMAGES_NAMES = ["rockhopper", "adelie", "emperor"];
 
-  const image = require(`../assets/images/${
-    PENGUIN_IMAGES_NAMES[penguin.id % 3]
-  }_400x400.png`);
+  const image = require(`../assets/images/${penguin.species.toLowerCase()}_400x400.png`);
 
   return (
     <div className="flex flex-col border-solid border-2 rounded-lg w-60 h-80 m-3 bg-gray-50 shadow-lg">
@@ -20,7 +18,6 @@ export default function PenguinCard({ penguin }: PenguinProps) {
           <div className="text-center text-xs">-- {penguin.species} --</div>
         </div>
 
-        {/* <div className="flex justify-around items-center border-solid border-2 border-blue-400 shadow-md rounded-sm h-36 my-3 bg-blue-200"> */}
         <div className="flex justify-around items-center shadow-md rounded-sm h-36 my-3 bg-blue-200">
           <img className="h-36 w-36" src={image} />
         </div>
