@@ -38,6 +38,10 @@ export default function Penguins() {
   };
 
   if (penguins == null) return <div></div>;
+  if (penguins.length === 0)
+    return (
+      <div className="text-center m-3 text-xl">No Penguins to Load...</div>
+    );
   if (err) return <div>Server Error</div>;
 
   return (
