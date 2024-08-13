@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { IPenguin } from "../types/types";
 import PenguinCard from "./PenguinCard";
-import PenguinThumbnail from "./PenguinThumbnail";
 import FeedButton from "./FeedButton";
 import { feedPenguin, getPenguins } from "../services/penguinService";
+import PenguinThumbnails from "./PenguinThumbnails";
 
 export default function Penguins() {
   const [penguins, setPenguins] = useState<IPenguin[] | null>(null);
@@ -37,12 +37,12 @@ export default function Penguins() {
     );
   };
 
-  if (penguins == null) return <div></div>;
+  if (err) return <div>Server Error</div>;
+  if (penguins == null) return <div>Loading...</div>;
   if (penguins.length === 0)
     return (
       <div className="text-center m-3 text-xl">No Penguins to Load...</div>
     );
-  if (err) return <div>Server Error</div>;
 
   return (
     <div>
@@ -58,15 +58,11 @@ export default function Penguins() {
       </div>
 
       <div className="flex justify-center my-8">
-        {penguins.map((penguin, index) => (
-          <PenguinThumbnail
-            key={penguin.id}
-            penguin={penguin}
-            index={index}
-            setMainPenguinIndex={setMainPenguinIndex}
-            selected={index === mainPenguinIndex}
-          />
-        ))}
+        <PenguinThumbnails
+          penguins={penguins}
+          setMainPenguinIndex={setMainPenguinIndex}
+          mainPenguinIndex={mainPenguinIndex}
+        />
       </div>
     </div>
   );

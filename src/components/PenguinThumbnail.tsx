@@ -22,8 +22,11 @@ export default function PenguinThumbnail({
                     ${selected ? selectedStyling : unselectedStyling}`}
       onClick={() => setMainPenguinIndex(index)}
     >
-      <div className="m-3 flex justify-center items-center h-full">
-        <div className="text-center font-bold">{penguin.name}</div>
+      <div className="m-3 flex flex-col justify-center items-center h-full">
+        <div className="text-center text-base font-bold">{penguin.name}</div>
+        <div className="text-center text-xs -mt-1">
+          -- {penguin.species.toLowerCase()} --
+        </div>
       </div>
     </div>
   );
